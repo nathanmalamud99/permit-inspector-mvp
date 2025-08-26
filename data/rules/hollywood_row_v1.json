@@ -1,0 +1,100 @@
+{
+  "jurisdiction": "Hollywood, FL (Broward County)",
+  "permit_type": "Driveway/ROW",
+  "version": "2025-08-26",
+  "source_citations": [
+    { "label": "City submittal standards (placeholder)", "url": "https://example.org/hollywood/row-standards" },
+    { "label": "ADA / PROWAG (verify locally)", "url": "https://www.access-board.gov/prowag/" },
+    { "label": "FDOT Permit (if state roadway)", "url": "https://www.fdot.gov/" }
+  ],
+  "rules": [
+    {
+      "id": "ADA_CROSS_SLOPE_SIDEWALK",
+      "where": { "work_types": ["sidewalk"] },
+      "parameter": "sidewalk_cross_slope_percent",
+      "operator": "<=",
+      "value": 2.1,
+      "units": "%",
+      "severity": "error",
+      "explanation": "Sidewalk cross slope should be ≤ 2.1% (≈1:48).",
+      "citation": "ADA/PROWAG — verify local adoption"
+    },
+    {
+      "id": "ADA_RUNNING_SLOPE_SIDEWALK",
+      "where": { "work_types": ["sidewalk"] },
+      "parameter": "sidewalk_running_slope_percent",
+      "operator": "<=",
+      "value": 5.0,
+      "units": "%",
+      "severity": "warn",
+      "explanation": "Running slope > 5% may trigger ramp/handrail details.",
+      "citation": "ADA/PROWAG — verify local adoption"
+    },
+    {
+      "id": "CURB_CUT_PERMIT_REQUIRED",
+      "where": { "work_types": ["curb_cut"] },
+      "parameter": "curb_cut_permit_attached",
+      "operator": "==",
+      "value": true,
+      "units": "",
+      "severity": "error",
+      "explanation": "Curb cut work requires ROW permit/bond – attach approval.",
+      "citation": "City code/checklist — verify"
+    },
+    {
+      "id": "FDOT_REQUIRED_IF_STATE_ROAD",
+      "where": { "fdot_row": true },
+      "parameter": "fdot_permit_attached",
+      "operator": "==",
+      "value": true,
+      "units": "",
+      "severity": "error",
+      "explanation": "Work on state roadway requires an FDOT permit/letter.",
+      "citation": "FDOT — verify"
+    },
+    {
+      "id": "MOT_REQUIRED_FOR_TRENCHING",
+      "where": { "work_types_any": ["utility_trench"] },
+      "parameter": "mot_plan_attached",
+      "operator": "==",
+      "value": true,
+      "units": "",
+      "severity": "error",
+      "explanation": "Trenching in ROW requires a MOT/traffic control plan.",
+      "citation": "MUTCD/City standards — verify"
+    },
+    {
+      "id": "PLAN_HAS_NORTH_ARROW",
+      "where": {},
+      "parameter": "plan_north_arrow_present",
+      "operator": "==",
+      "value": true,
+      "units": "",
+      "severity": "error",
+      "explanation": "Site plan must include a north arrow.",
+      "citation": "Submittal standards — verify"
+    },
+    {
+      "id": "PLAN_HAS_SCALE",
+      "where": {},
+      "parameter": "plan_scale_present",
+      "operator": "==",
+      "value": true,
+      "units": "",
+      "severity": "error",
+      "explanation": "Site plan must include a graphic or numeric scale.",
+      "citation": "Submittal standards — verify"
+    },
+    {
+      "id": "ADA_LANGUAGE_PRESENT_IF_SIDEWALK",
+      "where": { "work_types": ["sidewalk"] },
+      "parameter": "ada_language_present",
+      "operator": "==",
+      "value": true,
+      "units": "",
+      "severity": "warn",
+      "explanation": "Include ADA notes where sidewalk/ramps are impacted.",
+      "citation": "ADA/City standards — verify"
+    }
+  ]
+}
