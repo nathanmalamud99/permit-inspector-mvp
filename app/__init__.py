@@ -1,1 +1,10 @@
-
+app/
+  __init__.py
+  main.py          
+  models.py
+  rule_engine.py
+  ocr_plan_check.py
+data/
+  rules/
+    hollywood_row_v1.json
+requirements.txt
